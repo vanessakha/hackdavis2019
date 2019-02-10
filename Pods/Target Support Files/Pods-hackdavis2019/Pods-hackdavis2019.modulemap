@@ -1,0 +1,6 @@
+framework module Pods_hackdavis2019 {
+  umbrella header "Pods-hackdavis2019-umbrella.h"
+
+  export *
+  module * { export * }
+}

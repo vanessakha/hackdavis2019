@@ -1,0 +1,46 @@
+{
+  "UserAgent": "MobileHub/1.0",
+  "Version": "1.0",
+  "CredentialsProvider": {
+    "CognitoIdentity": {
+      "Default": {
+        "PoolId": "us-west-2:5641d8bb-dc4f-474d-a4ca-4fa94c78eba2",
+        "Region": "us-west-2"
+      }
+    }
+  },
+  "IdentityManager": {
+    "Default": {}
+  },
+  "CognitoUserPool": {
+    "Default": {
+      "PoolId": "us-west-2_R7XrwvNPF",
+      "AppClientId": "3c5ti5fi6s65iq20h28iijn20k",
+      "AppClientSecret": "1hm27hp3cfe32p3o1qtqd1v7omo64pkh091kndrag45qdsfc1lv4",
+      "Region": "us-west-2"
+    }
+  },
+  "DynamoDBObjectMapper": {
+    "Default": {
+      "Region": "us-west-2"
+    }
+  },
+  "ContentManager": {
+    "Default": {
+      "Bucket": "hackdavis-hosting-mobilehub-358030209",
+      "Region": "us-west-2",
+      "CloudFrontURL": "https://d1gq3z1n6yqo7e.cloudfront.net"
+    }
+  },
+  "PinpointAnalytics": {
+    "Default": {
+      "AppId": "e365e5e4cfce4a64a40575a5ba5e3055",
+      "Region": "us-east-1"
+    }
+  },
+  "PinpointTargeting": {
+    "Default": {
+      "Region": "us-east-1"
+    }
+  }
+}
