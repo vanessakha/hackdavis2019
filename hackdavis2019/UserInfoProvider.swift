@@ -18,7 +18,7 @@ class UserInfoProvider{
     var _name: String?
     var _phone_number: String?
     var _wants_notifications: Bool?
-    var _userId: String = AWSIdentityManager.default().identityId!
+    var _userId: String? = AWSIdentityManager.default().identityId
     
     func update(name: String, phone_number: String, wants_notifications: Bool){
         self._name = name
@@ -37,7 +37,7 @@ class UserInfoProvider{
         ]
         queryExpression.expressionAttributeValues =
             [
-            ":userId": _userId
+            ":userId": AWSIdentityManager.default().identityId
         ]
         let object_mapper = AWSDynamoDBObjectMapper.default()
         print("about to perform actual query")
@@ -56,7 +56,7 @@ class UserInfoProvider{
                     }
                 }
                 else{
-                    self.updateUserDDB(userId: self._userId, name: " ", phone_number: " ", wants_notifications: true)
+                    self.updateUserDDB(userId: self._userId!, name: " ", phone_number: " ", wants_notifications: true)
                     self.getUserFromDDB()
                 }
                 

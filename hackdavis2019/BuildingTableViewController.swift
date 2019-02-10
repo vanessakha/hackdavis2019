@@ -4,7 +4,6 @@
 //
 //  Created by Vanessa on 2/9/19.
 //  Copyright © 2019 tut. All rights reserved.
-//
 
 import UIKit
 import os.log
@@ -34,10 +33,13 @@ class BuildingTableViewController: UITableViewController, NSFetchedResultsContro
     var _userInfoProvider: UserInfoProvider? = nil
 //    var _fetchedResultsController: NSFetchedResultsController<Meal>? = nil
 //    var context: NSManagedObjectContext? = nil
+    
+    
     var buildings: [Building] = []
     static var absDocURL: URL?
     
     override func viewDidLoad() {
+        setBuildings()
         super.viewDidLoad()
         
         print("table view did load")
@@ -79,10 +81,15 @@ class BuildingTableViewController: UITableViewController, NSFetchedResultsContro
         }
         
     }
-
+    
     func setBuildings(){
-//        var wellman = Building()
-//        var hutch = Building()
+        let wellman = Building(name: "Wellman Hall", total_demand: 0, electricity: 0, water: 0, steam: 0, imageView: UIImage(named: "wellman")!)
+        let segundo_dc = Building(name: "Segundo Dining Commons", total_demand: 0, electricity: 0, water: 0, steam: 0, imageView: UIImage(named: "segundo-dc")!)
+        let tercero_dc = Building(name: "Tercero Dining Commons", total_demand: 0, electricity: 0, water: 0, steam: 0, imageView: UIImage(named: "tercero-dc")!)
+        buildings.append(wellman)
+        buildings.append(segundo_dc)
+        buildings.append(tercero_dc)
+//
         // etc
     }
     override func viewWillAppear(_ animated: Bool){

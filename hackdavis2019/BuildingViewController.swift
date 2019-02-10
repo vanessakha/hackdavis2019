@@ -27,21 +27,51 @@ class BuildingViewController: UIViewController, UITextFieldDelegate, UIImagePick
     var building: Building? = nil
     
     override func viewDidLoad() {
+        loadData()
+        super.viewDidLoad()
+    }
+    
+    func loadData(){
         // LAMBDA
         let name = building!.name
         let lambda_invoker = AWSLambdaInvoker.default()
         let json_obj: [String: Any] = ["Name": name]
-        lambda_invoker.invokeFunction("DavisNRG/buildings", jsonObject: json_obj).continueWith(block: {(task: AWSTask<AnyObject>)-> Any? in
+        lambda_invoker.invokeFunction("DavisNRG-buildingHandler-mobilehub-358030209", jsonObject: json_obj).continueWith(block: {(task: AWSTask<AnyObject>)-> Any? in
             if (task.error != nil){
                 print("Error: \(task.error!)")
+                return nil
             }
             else{
+                if let json_dict = task.result as? NSDictionary{
+                    let body = json_dict["body"] as? NSDictionary
+                    self.building!.electricity = body!["Electricity"] as! NSNumber
+                    self.building!.steam = body!["Steam"] as! NSNumber
+                    self.building!.water = body!["ChilledWater"] as! NSNumber
+                    self.building!.total_demand = body!["Total"] as! NSNumber
+                    
+                    DispatchQueue.main.async{
+                        self.steamDataLabel.text = self.building!.steam.stringValue + " kBtu"
+                        self.electricityDataLabel.text = self.building!.electricity.stringValue + " kBtu"
+                        self.waterDataLabel.text = self.building!.water.stringValue + " kBtu"
+                        self.totalDataLabel.text = self.building!.total_demand.stringValue + " kBtu"
+                    }
+                    return nil
+                    
+                }
+                
+                //                if let JSONDictionary = task.result as? NSDictionary {
+                //                    print("Result: \(JSONDictionary)")
+                //                    print("resultKey: \(JSONDictionary["resultKey"])")
+                //                }
                 
             }
-        )})
-        
+            return nil
+        })
     }
-//    // MARK: Properties
+    @IBAction func refreshButtonPressed(_ sender: Any) {
+        loadData()
+    }
+    //    // MARK: Properties
 //    var mealsContentProvider: MealsContentProvider? = nil
 //    @IBOutlet weak var nameTextField: UITextField!
 //    @IBOutlet weak var photoImageView: UIImageView!

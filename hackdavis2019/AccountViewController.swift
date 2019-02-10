@@ -31,7 +31,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UINavigation
             warningTextLabel.text = "Please include your name and number before saving."
         }
         else{
-            _userInfoProvider!.updateUserDDB(userId: _userInfoProvider!._userId, name: name, phone_number: number, wants_notifications: textSwitch.isOn)
+            _userInfoProvider!.updateUserDDB(userId: _userInfoProvider!._userId!, name: name, phone_number: number, wants_notifications: textSwitch.isOn)
         }
         
     }

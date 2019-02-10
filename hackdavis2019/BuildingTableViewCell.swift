@@ -13,4 +13,5 @@ class BuildingTableViewCell: UITableViewCell{
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    
 }

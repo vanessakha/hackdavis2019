@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -107,7 +106,18 @@
                             <constraint firstItem="gda-76-JDu" firstAttribute="top" secondItem="BS2-8Y-Giu" secondAttribute="bottom" constant="15" id="p8v-sn-e4x"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Building" id="df6-ks-cF5"/>
+                    <navigationItem key="navigationItem" title="Building" id="df6-ks-cF5">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="eBx-VQ-7cO">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qec-W8-Hiu">
+                                <rect key="frame" x="306" y="7" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Refresh"/>
+                            </button>
+                            <connections>
+                                <action selector="refreshButtonPressed:" destination="BhX-Vf-W0n" id="XV4-OR-VIv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="electricityDataLabel" destination="PLd-0n-CXp" id="pvH-1H-d05"/>
                         <outlet property="steamDataLabel" destination="Og4-FE-ic0" id="FJz-25-bLF"/>
@@ -123,43 +133,44 @@
         <scene sceneID="MPe-yy-lBe">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="g3c-4o-j8P" customClass="BuildingTableViewController" customModule="hackdavis2019" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0lK-7n-py1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0lK-7n-py1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BuildingTableViewCell" rowHeight="77" id="sA8-rS-foC" customClass="BuildingTableViewCell" customModule="hackdavis2019" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="77"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="BuildingTableViewCell" rowHeight="84" id="sA8-rS-foC" customClass="BuildingTableViewCell" customModule="hackdavis2019" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sA8-rS-foC" id="qzm-Gd-o6D">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="76.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="sA8-rS-foC" id="qzm-Gd-o6D">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X9B-Rm-NNc">
-                                            <rect key="frame" x="0.0" y="0.0" width="76" height="76"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vK9-Yp-7Ka">
+                                            <rect key="frame" x="0.0" y="0.0" width="84" height="84"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="X9B-Rm-NNc" secondAttribute="height" multiplier="1:1" id="nfD-HM-Lgb"/>
+                                                <constraint firstAttribute="width" secondItem="vK9-Yp-7Ka" secondAttribute="height" multiplier="1:1" id="iPT-to-yB4"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Building" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yrj-4M-Saf">
-                                            <rect key="frame" x="84" y="26" width="62" height="25"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdh-pV-5nI">
+                                            <rect key="frame" x="92" y="32" width="229" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Yrj-4M-Saf" secondAttribute="bottom" constant="15" id="QRq-4k-yhq"/>
-                                        <constraint firstItem="Yrj-4M-Saf" firstAttribute="leading" secondItem="X9B-Rm-NNc" secondAttribute="trailing" constant="8" id="ZBC-Ne-JnP"/>
-                                        <constraint firstItem="X9B-Rm-NNc" firstAttribute="top" secondItem="qzm-Gd-o6D" secondAttribute="top" id="fZK-Mv-Vl7"/>
-                                        <constraint firstAttribute="bottom" secondItem="X9B-Rm-NNc" secondAttribute="bottom" id="o2G-ay-Rab"/>
-                                        <constraint firstItem="Yrj-4M-Saf" firstAttribute="top" secondItem="qzm-Gd-o6D" secondAttribute="topMargin" constant="15" id="uvk-lD-VaL"/>
-                                        <constraint firstItem="X9B-Rm-NNc" firstAttribute="leading" secondItem="qzm-Gd-o6D" secondAttribute="leading" id="yml-GF-kZV"/>
+                                        <constraint firstItem="vK9-Yp-7Ka" firstAttribute="leading" secondItem="qzm-Gd-o6D" secondAttribute="leading" id="Aem-Mp-c5l"/>
+                                        <constraint firstItem="fdh-pV-5nI" firstAttribute="centerY" secondItem="vK9-Yp-7Ka" secondAttribute="centerY" id="BDe-6H-bOc"/>
+                                        <constraint firstItem="fdh-pV-5nI" firstAttribute="top" secondItem="qzm-Gd-o6D" secondAttribute="topMargin" constant="21" id="EKZ-BI-dBz"/>
+                                        <constraint firstAttribute="bottom" secondItem="vK9-Yp-7Ka" secondAttribute="bottom" id="HDH-3V-Fx8"/>
+                                        <constraint firstItem="vK9-Yp-7Ka" firstAttribute="top" secondItem="qzm-Gd-o6D" secondAttribute="top" id="ba8-9J-GFN"/>
+                                        <constraint firstItem="fdh-pV-5nI" firstAttribute="leading" secondItem="vK9-Yp-7Ka" secondAttribute="trailing" constant="8" id="iTs-CY-5ir"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="fdh-pV-5nI" secondAttribute="trailing" constant="38" id="ueP-Hd-eKU"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nameLabel" destination="Yrj-4M-Saf" id="Sw2-Rg-fe5"/>
-                                    <outlet property="photoImageView" destination="X9B-Rm-NNc" id="ps4-ye-R7Q"/>
+                                    <outlet property="nameLabel" destination="fdh-pV-5nI" id="iXk-qI-Cjd"/>
+                                    <outlet property="photoImageView" destination="vK9-Yp-7Ka" id="kuf-Og-RO1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
