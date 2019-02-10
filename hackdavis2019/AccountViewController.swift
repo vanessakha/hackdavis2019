@@ -24,15 +24,67 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UINavigation
     @IBAction func saveButtonPressed(_ sender: Any) {
         
         // save info
+        print("saving")
         
-        var name: String = nameTextField.text!
-        var number: String = numberTextField.text!
-        if (name.isEmpty || number.isEmpty){
-            warningTextLabel.text = "Please include your name and number before saving."
+        var number_exists : Bool = false
+        var user_name: String
+        var user_number: String
+        if let name: String = nameTextField.text {
+            print("name is alright - 1")
+            user_name = name
         }
         else{
-            _userInfoProvider!.updateUserDDB(userId: _userInfoProvider!._userId!, name: name, phone_number: number, wants_notifications: textSwitch.isOn)
+            if let number: String = numberTextField.text{
+                print("name and number are alright - 1")
+                warningTextLabel.text = "Please include your name."
+            }
+            else{
+                warningTextLabel.text = "Please include your name and number."
+            }
+            
+            return
         }
+        if let number: String = numberTextField.text {
+            print("number is alright")
+            user_number = numberTextField.text!
+        }
+        else{
+            warningTextLabel.text = "Please include your number."
+            return
+        }
+        
+        if (user_name.isEmpty){
+            print("user_name is empty")
+            if (user_number.isEmpty){
+                warningTextLabel.text = "Please include your name and number."
+                print("both are empty")
+            }
+            else{
+                warningTextLabel.text = "Please include your name and number."
+            }
+            return
+        }
+        if (user_number.isEmpty){
+            warningTextLabel.text = "Please include your number."
+            print("number is empty")
+            return
+        }
+        
+        if (user_number.count != 12){
+            warningTextLabel.text = "Please follow the correct number format of: +12223334444."
+            return
+        }
+        let start_index = user_number.index(user_number.startIndex, offsetBy: 3)
+        let end_index = user_number.index(user_number.startIndex, offsetBy: 7)
+        if let str = Int(String(user_number[start_index...end_index])){
+            
+        }
+        else{
+            warningTextLabel.text = "Please follow the correct number format of: +12223334444."
+            return
+        }
+        
+        _userInfoProvider!.updateUserDDB(userId: _userInfoProvider!._userId!, name: user_name, phone_number: user_number, wants_notifications: textSwitch.isOn)
         
     }
     

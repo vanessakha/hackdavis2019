@@ -10,7 +10,7 @@
 		71188D3A22100DDD00F7A44B /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71188D3022100DDC00F7A44B /* Users.swift */; };
 		71188D3E22100DDD00F7A44B /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71188D3922100DDC00F7A44B /* LICENSE.txt */; };
 		71188D402210228F00F7A44B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71188D3F2210228F00F7A44B /* AccountViewController.swift */; };
-		714A80F5221057DA00F04AE5 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 714A80F4221057DA00F04AE5 /* awsconfiguration.json */; };
+		714A80F72210779300F04AE5 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 714A80F62210779300F04AE5 /* awsconfiguration.json */; };
 		71524D74220F8E5600E2563C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71524D73220F8E5600E2563C /* AppDelegate.swift */; };
 		71524D76220F8E5600E2563C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71524D75220F8E5600E2563C /* ViewController.swift */; };
 		71524D79220F8E5600E2563C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71524D77220F8E5600E2563C /* Main.storyboard */; };
@@ -42,7 +42,7 @@
 		71188D3022100DDC00F7A44B /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		71188D3922100DDC00F7A44B /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		71188D3F2210228F00F7A44B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		714A80F4221057DA00F04AE5 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		714A80F62210779300F04AE5 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		71524D70220F8E5600E2563C /* hackdavis2019.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackdavis2019.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71524D73220F8E5600E2563C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71524D75220F8E5600E2563C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		71524D67220F8E5600E2563C = {
 			isa = PBXGroup;
 			children = (
-				714A80F4221057DA00F04AE5 /* awsconfiguration.json */,
+				714A80F62210779300F04AE5 /* awsconfiguration.json */,
 				71BBA93E220FAAF700A3C305 /* Podfile */,
 				71524D72220F8E5600E2563C /* hackdavis2019 */,
 				71524D87220F8E5900E2563C /* hackdavis2019Tests */,
@@ -274,8 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				71524D7E220F8E5900E2563C /* LaunchScreen.storyboard in Resources */,
+				714A80F72210779300F04AE5 /* awsconfiguration.json in Resources */,
 				71524D7B220F8E5900E2563C /* Assets.xcassets in Resources */,
-				714A80F5221057DA00F04AE5 /* awsconfiguration.json in Resources */,
 				71188D3E22100DDD00F7A44B /* LICENSE.txt in Resources */,
 				71524D79220F8E5600E2563C /* Main.storyboard in Resources */,
 			);

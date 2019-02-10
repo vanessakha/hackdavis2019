@@ -86,10 +86,22 @@ class BuildingTableViewController: UITableViewController, NSFetchedResultsContro
         let wellman = Building(name: "Wellman Hall", total_demand: 0, electricity: 0, water: 0, steam: 0, imageView: UIImage(named: "wellman")!)
         let segundo_dc = Building(name: "Segundo Dining Commons", total_demand: 0, electricity: 0, water: 0, steam: 0, imageView: UIImage(named: "segundo-dc")!)
         let tercero_dc = Building(name: "Tercero Dining Commons", total_demand: 0, electricity: 0, water: 0, steam: 0, imageView: UIImage(named: "tercero-dc")!)
+        let olson = Building(name: "Olson Hall", total_demand: 0, electricity: 0, water: 0, steam: 0, imageView: UIImage(named: "olson")!)
+        let scc = Building(name: "Student Community Center", total_demand: 0, electricity: 0, water: 0, steam: 0, imageView: UIImage(named: "scc")!)
+        let meyer = Building(name: "Meyer Hall", total_demand: 0, electricity: 0, water: 0, steam: 0, imageView: UIImage(named: "meyer")!)
+        let life_sciences = Building(name: "Life Sciences", total_demand: 0, electricity: 0, water: 0, steam: 0, imageView: UIImage(named: "life-sciences")!)
+        let young = Building(name: "Young Hall", total_demand: 0, electricity: 0, water: 0, steam: 0, imageView: UIImage(named: "young")!)
+        let tupper = Building(name: "Tupper Hall", total_demand: 0, electricity: 0, water: 0, steam: 0, imageView: UIImage(named: "tupper")!)
+        
         buildings.append(wellman)
         buildings.append(segundo_dc)
         buildings.append(tercero_dc)
-//
+        buildings.append(olson)
+        buildings.append(scc)
+        buildings.append(meyer)
+        buildings.append(life_sciences)
+        buildings.append(young)
+        buildings.append(tupper)
         // etc
     }
     override func viewWillAppear(_ animated: Bool){
