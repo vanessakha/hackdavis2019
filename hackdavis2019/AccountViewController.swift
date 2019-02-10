@@ -56,7 +56,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UINavigation
         if (user_name.isEmpty){
             print("user_name is empty")
             if (user_number.isEmpty){
-                warningTextLabel.text = "Please include your name and number."
+                warningTextLabel.text = "Please include your name."
                 print("both are empty")
             }
             else{
@@ -74,16 +74,20 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UINavigation
             warningTextLabel.text = "Please follow the correct number format of: +12223334444."
             return
         }
-        let start_index = user_number.index(user_number.startIndex, offsetBy: 3)
-        let end_index = user_number.index(user_number.startIndex, offsetBy: 7)
-        if let str = Int(String(user_number[start_index...end_index])){
-            
+        let start_index = user_number.index(user_number.startIndex, offsetBy: 1)
+        let end_index = user_number.index(user_number.startIndex, offsetBy: 11)
+        
+        if !(CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: String(user_number[start_index...end_index])))){
+            warningTextLabel.text = "Please follow the correct number format of: +12223334444."
+            return
         }
-        else{
+        let index = user_number.index(user_number.startIndex, offsetBy: 0)
+        if !(String(user_number[index]) == "+"){
             warningTextLabel.text = "Please follow the correct number format of: +12223334444."
             return
         }
         
+        warningTextLabel.text = ""
         _userInfoProvider!.updateUserDDB(userId: _userInfoProvider!._userId!, name: user_name, phone_number: user_number, wants_notifications: textSwitch.isOn)
         
     }

@@ -23,17 +23,8 @@ import AWSMobileClient
 
 class BuildingTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
-//    @IBAction func accountButtonPressed(_ sender: Any) {
-//
-//        performSegue(withIdentifier: "showAccount", sender: nil)
-//    }
-    
-    
     var _detailViewController: BuildingViewController? = nil
     var _userInfoProvider: UserInfoProvider? = nil
-//    var _fetchedResultsController: NSFetchedResultsController<Meal>? = nil
-//    var context: NSManagedObjectContext? = nil
-    
     
     var buildings: [Building] = []
     static var absDocURL: URL?
@@ -44,10 +35,6 @@ class BuildingTableViewController: UITableViewController, NSFetchedResultsContro
         
         print("table view did load")
         self.tableView.delegate = self
-//        self.tableView.backgroundColor = UIColor.orange
-//        let fileManager = FileManager.default
-//        MealTableViewController.absDocURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-//        print("docs path is \(MealTableViewController.absDocURL!.path)")
         
         _userInfoProvider = UserInfoProvider()
         if !(AWSSignInManager.sharedInstance().isLoggedIn){
@@ -66,14 +53,6 @@ class BuildingTableViewController: UITableViewController, NSFetchedResultsContro
             self._userInfoProvider?.getUserFromDDB()
         }
         print("checked for sign-in")
-        
-//        context?.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        
-//        navigationItem.leftBarButtonItem = editButtonItem
-        
-//        let addMealButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewMeal(_:)))
-//        navigationItem.rightBarButtonItem = addMealButton
-        
         
         if let split = splitViewController {
             let controllers = split.viewControllers
@@ -107,7 +86,6 @@ class BuildingTableViewController: UITableViewController, NSFetchedResultsContro
     override func viewWillAppear(_ animated: Bool){
         print("table view about to appear")
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed // change
-        //        _mealsContentProvider?.getMealsFromDDB() // change: why include †his query?
         super.viewWillAppear(animated)
     }
     
@@ -115,7 +93,6 @@ class BuildingTableViewController: UITableViewController, NSFetchedResultsContro
         if (segue.identifier == "showDetail") {
             print("Performing segue")
             if let indexPath = tableView.indexPathForSelectedRow {
-//                let object = fetchedResultsController.object(at: indexPath)
                 let controller = (segue.destination as! UINavigationController).topViewController as! BuildingViewController
                 
                 controller._userInfoProvider = _userInfoProvider
@@ -139,7 +116,6 @@ class BuildingTableViewController: UITableViewController, NSFetchedResultsContro
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -147,8 +123,6 @@ class BuildingTableViewController: UITableViewController, NSFetchedResultsContro
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let sectionInfo = fetchedResultsController.sections![section] // get information about fetched core data results
-//        return sectionInfo.numberOfObjects // get number of objects in core data
         return buildings.count
     }
     
@@ -181,17 +155,6 @@ class BuildingTableViewController: UITableViewController, NSFetchedResultsContro
         print("configuring cell")
         cell.photoImageView.image = building.imageView
         cell.nameLabel.text = building.name
-//        cell.ratingControl.rating = Int(event.rating)
-        //        print("configuring cell. file path is \(String(describing: event.filePath))")
-//        if let meal_photo_path = event.filePath{
-//            let absFilePath = MealTableViewController.absDocURL!.appendingPathComponent("\(meal_photo_path)").path
-//            if !absFilePath.isEmpty && FileManager.default.fileExists(atPath: absFilePath){
-//                if let image = UIImage(contentsOfFile: absFilePath){
-//                    cell.photoImageView.image = image
-//                }
-//            }
-//        }
-//
     }
 
 }

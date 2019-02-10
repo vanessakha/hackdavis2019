@@ -27,7 +27,7 @@ class UserInfoProvider{
     }
     
     func getUserFromDDB(){
-        // query and update local data
+      
         print("getting user from db")
         
         let queryExpression = AWSDynamoDBQueryExpression()
@@ -41,7 +41,7 @@ class UserInfoProvider{
         ]
         let object_mapper = AWSDynamoDBObjectMapper.default()
         print("about to perform actual query")
-        object_mapper.query(Users.self, expression: queryExpression){ (output: AWSDynamoDBPaginatedOutput?, error: Error?) in // ? how do I access query items?
+        object_mapper.query(Users.self, expression: queryExpression){ (output: AWSDynamoDBPaginatedOutput?, error: Error?) in
             print("querying")
             if error != nil {
                 print("DynamoDB query request failed. Error: \(String(describing: error))")
@@ -60,16 +60,6 @@ class UserInfoProvider{
                     self.getUserFromDDB()
                 }
                 
-               
-//                for meal in output!.items {
-//                    let meal = meal as? Meals
-//                    print("\nMealId: \(meal!._mealId!)\nTitle: \(meal!._name!)\nRating: \(meal!._rating!)\nAverage Rating: \(meal!._averageRating!)\nNum Raters: \(meal!._numRaters!)\nIngredients: \(meal!._ingredients!)\nRecipe: \(meal!._recipe!)\nLowercased name: \(meal!._lowercaseName!)\nratersList: \(meal!._ratersList)")
-//
-//                    // update core data
-//                    DispatchQueue.main.async{
-//                        self.update(mealId: meal!._mealId!, mealName: meal!._name!, rating: meal!._rating! as! Int, averageRating: meal!._averageRating!.floatValue, numRaters: meal!._numRaters! as! Int, ingredients: meal!._ingredients!, recipe: meal!._recipe!, filePath: meal!._filePath ?? "", s3Key: meal!._s3Key ?? "", ratersList: meal!._ratersList!)
-//                    }
-//                }
                 print("got meals from DDB")
                 
             }
@@ -81,7 +71,6 @@ class UserInfoProvider{
         let object_mapper = AWSDynamoDBObjectMapper.default()
         
         let user: Users = Users()
-        //        meal._userId = AWSIdentityManager.default().identityId
         user._userId = userId
         user._phoneNumber = phone_number
         user._wantNotifications = wants_notifications as! NSNumber
@@ -89,29 +78,10 @@ class UserInfoProvider{
         
         if (!name.isEmpty){
             user._name = name
-//            meal._lowercaseName = mealName.lowercased()
         }
         else{
             user._name = ""
         }
-//            meal._lowercaseName = ""
-        //        }
-        //        meal._rating = rating as NSNumber
-        //        if (!ingredients.isEmpty){
-        //            meal._ingredients = ingredients
-        //        }
-        //        else{
-        //            meal._ingredients = ""
-        //        }
-        //        if (!recipe.isEmpty){
-        //            meal._recipe = recipe
-        //        }
-        //        else{
-        //            meal._recipe = ""
-        //        }
-        
-        
-//        meal._updateDate = NSDate().timeIntervalSince1970 as NSNumber
         
         let updateMapperConfig = AWSDynamoDBObjectMapperConfiguration()
         updateMapperConfig.saveBehavior = .updateSkipNullAttributes
